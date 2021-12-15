@@ -12,22 +12,33 @@ namespace task1
         static void Main(string[] args)
         {
             Console.WriteLine("Введите радиус окружности (число > 0)");
-            double r = (Convert.ToDouble(Console.ReadLine()));
+            double r = input();
             Console.WriteLine("Введите координату X центра окружности");
-            double x0 = (Convert.ToDouble(Console.ReadLine()));
+            double x0 = input();
             Console.WriteLine("Введите координату Y центра окружности");
-            double y0 = (Convert.ToDouble(Console.ReadLine()));
+            double y0 = input();
             Console.WriteLine("Введите координату X точки A");
-            double x1 = (Convert.ToDouble(Console.ReadLine()));
+            double x1 = input();
             Console.WriteLine("Введите координату Y точки A");
-            double y1 = (Convert.ToDouble(Console.ReadLine()));
+            double y1 = input();
             Circle.length(r);
             Circle.Area(r);
             Circle.PointAffiliation(r, x0, y0, x1, y1);
             Console.ReadLine();
         }
-
-
+        public static double input()
+        {
+            double x = 0;
+            try
+            {
+                x = (Convert.ToDouble(Console.ReadLine()));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return x;
+        }
 
         public static class Circle
         {
